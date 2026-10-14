@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Diary</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png?v=moon25">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico?v=moon25" type="image/x-icon">
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        background: #0a0a0a;
+        color: #e8e8e8;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 16px;
+        line-height: 1.5;
+        min-height: 100vh;
+      }
+
+      a { color: #ddd; text-decoration: none; }
+      a:hover, a:focus { color: #f0a85a; }
+
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 20px 16px 48px;
+        display: grid;
+        grid-template-columns: 1fr 220px;
+        gap: 28px;
+        align-items: start;
+      }
+
+      .brand {
+        grid-column: 1 / -1;
+        margin-bottom: 4px;
+      }
+
+      .brand a {
+        font-family: Georgia, serif;
+        font-size: 28px;
+        font-weight: normal;
+        color: #f2f2f2;
+      }
+
+      .brand p {
+        margin-top: 6px;
+        font-size: 0.95rem;
+        color: #999;
+      }
+
+      .feed { min-width: 0; }
+
+      .entry {
+        border: 1px solid #2a2a2a;
+        background: #111;
+        padding: 14px 16px 12px;
+        margin-bottom: 14px;
+      }
+
+      .entry-title {
+        font-size: 1.35rem;
+        font-weight: normal;
+        margin: 0 0 8px;
+        color: #f2f2f2;
+      }
+
+      .entry-title a { color: inherit; }
+      .entry-title a:hover { color: #f0a85a; }
+
+      .weekday {
+        font-size: 1.15rem;
+        margin-right: 6px;
+        color: #aaa;
+        font-family: Verdana, Helvetica, sans-serif;
+      }
+
+      .cal {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+
+      .cal caption {
+        caption-side: top;
+        text-align: left;
+        color: #eee;
+        font-size: 13px;
+        margin-bottom: 8px;
+      }
+
+      .cal th {
+        color: #777;
+        font-weight: normal;
+        padding: 4px 0;
+      }
+
+      .cal td {
+        text-align: center;
+        padding: 3px 0;
+        color: #666;
+      }
+
+      .cal td a {
+        display: inline-block;
+        min-width: 1.5em;
+        color: #f0a85a;
+        border-bottom: 1px solid #f0a85a;
+      }
+
+      .cal td.today a,
+      .cal td a:hover {
+        color: #fff;
+        background: #f0a85a;
+        border-bottom-color: transparent;
+        border-radius: 2px;
+      }
+
+      .entry-preview {
+        color: #cfcfcf;
+        font-size: 1rem;
+        margin: 0 0 10px;
+      }
+
+      .entry-tags {
+        font-size: 0.9rem;
+        color: #888;
+      }
+
+      .entry-tags a {
+        color: #9aa;
+        margin-right: 8px;
+      }
+
+      .entry-tags a:hover { color: #f0a85a; }
+
+      .side {
+        font-family: Verdana, Helvetica, sans-serif;
+        font-size: 13px;
+        color: #bbb;
+        position: sticky;
+        top: 16px;
+      }
+
+      .side h2 {
+        font-size: 15px;
+        font-weight: normal;
+        color: #eee;
+        margin: 18px 0 8px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #2a2a2a;
+      }
+
+      .side h2:first-child { margin-top: 0; }
+
+      .side ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .side li { margin: 4px 0; }
+
+      .side details {
+        margin: 2px 0;
+      }
+
+      .side summary {
+        cursor: pointer;
+        color: #ccc;
+        list-style: none;
+      }
+
+      .side summary::-webkit-details-marker { display: none; }
+
+      .side summary::before {
+        content: "▸ ";
+        color: #666;
+      }
+
+      .side details[open] > summary::before { content: "▾ "; }
+
+      .side details ul {
+        margin: 4px 0 8px 14px;
+      }
+
+      .tag-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 10px;
+        margin-bottom: 8px;
+      }
+
+      .tag-cloud a { color: #9aa; }
+
+      .home {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-top: 8px;
+        font-family: Verdana, Helvetica, sans-serif;
+        font-size: 14px;
+      }
+
+      @media (max-width: 720px) {
+        .wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .side {
+          position: static;
+          order: 3;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="brand">
+        <a href="diary.html">Diary</a>
+        <p>personal thoughts, observations, anecdotes, and things i'm working through</p>
+      </header>
+
+      <main class="feed">
+        <!-- copy an entry block below to add a day; weekday = Sun…Sat -->
+
+        <article class="entry">
+          <h2 class="entry-title">
+            <a href="diary/2026-10-14.html">
+              <span class="weekday">Wed</span> October 14, 2026
+            </a>
+          </h2>
+          <p class="entry-preview">
+            Tuning the portfolio.
+          </p>
+          <p class="entry-tags">
+            Tags: <a href="#">#code</a> <a href="#">#portfolio</a>
+          </p>
+        </article>
+      </main>
+
+      <aside class="side">
+        <h2>Calendar</h2>
+        <!-- link any day that has a post -->
+        <table class="cal">
+          <caption>October 2026</caption>
+          <thead>
+            <tr>
+              <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td><td></td><td></td><td></td>
+              <td>1</td><td>2</td><td>3</td>
+            </tr>
+            <tr>
+              <td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+            </tr>
+            <tr>
+              <td>11</td><td>12</td><td>13</td>
+              <td class="today"><a href="diary/2026-10-14.html" title="October 14, 2026">14</a></td>
+              <td>15</td><td>16</td><td>17</td>
+            </tr>
+            <tr>
+              <td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td>
+            </tr>
+            <tr>
+              <td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Tags</h2>
+        <div class="tag-cloud">
+          <a href="#">#code</a>
+          <a href="#">#portfolio</a>
+          <a href="#">#life</a>
+          <a href="#">#photos</a>
+        </div>
+
+        <h2>Series</h2>
+        <ul>
+          <li><a href="#">Portfolio rebuild (1)</a></li>
+        </ul>
+
+        <h2>Archive</h2>
+        <details open>
+          <summary>2026</summary>
+          <ul>
+            <li><a href="diary.html">October (1)</a></li>
+          </ul>
+        </details>
+      </aside>
+
+      <p class="home"><a href="index.html">← return home</a></p>
+    </div>
+  </body>
+</html>

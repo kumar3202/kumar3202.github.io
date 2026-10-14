@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>off hours</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png?v=moon25">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico?v=moon25" type="image/x-icon">
+    <style>
+      @font-face {
+        font-family: "Cordata";
+        src: url("fonts/cordata.woff2") format("woff2");
+        font-display: swap;
+      }
+
+      :root {
+        color-scheme: light dark;
+        accent-color: teal;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        image-rendering: pixelated;
+      }
+
+      body {
+        color: #243028;
+        font-family: "Cordata", monospace;
+        font-size: 16px;
+        -webkit-font-smoothing: none;
+        background-color: #e7eee2;
+        background-image:
+          radial-gradient(ellipse 90% 60% at 50% -10%, #f4f7ef, transparent 55%),
+          radial-gradient(ellipse 70% 50% at 100% 100%, rgba(180, 198, 160, 0.45), transparent 50%),
+          linear-gradient(180deg, #eef3e8 0%, #dde7d2 100%);
+        background-attachment: fixed;
+        overflow-y: scroll;
+      }
+
+      h1, h2, h3 {
+        font-weight: normal;
+      }
+
+      h1 {
+        font-size: 2.75rem;
+        line-height: 1;
+        text-decoration: honeydew solid underline;
+      }
+
+      header {
+        text-align: center;
+        margin: 2rem 0;
+      }
+
+      header p {
+        margin: 1rem 0;
+        font-size: 1rem;
+        line-height: 1.3;
+      }
+
+      a {
+        color: #0e72c5;
+        padding: 2px 1px 0 1px;
+        text-decoration-style: dotted;
+        text-underline-offset: 2px;
+      }
+
+      a:visited {
+        color: teal;
+      }
+
+      a:hover,
+      a:focus {
+        background: white;
+        outline: 1px dotted;
+        outline-offset: 1px;
+      }
+
+      button,
+      input {
+        font-family: "Cordata", monospace;
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: 225px 1fr;
+        padding: 0 1rem 2rem 1rem;
+      }
+
+      fieldset,
+      nav p {
+        margin: 1rem 2rem 1rem 1rem;
+        padding: 5px 15px 10px 15px;
+      }
+
+      nav p {
+        text-align: center;
+        padding: 10px;
+      }
+
+      input,
+      label {
+        cursor: pointer;
+      }
+
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: start;
+      }
+
+      .gallery button {
+        width: fit-content;
+        background: honeydew;
+        padding: 5px 5px 2px 5px;
+        border: 1px solid gainsboro;
+        max-width: calc(50% - 0.5rem);
+        position: relative;
+        cursor: zoom-in;
+      }
+
+      .gallery figure img {
+        width: 160px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        background: cadetblue;
+        position: relative;
+        z-index: 2;
+        display: block;
+        image-rendering: pixelated;
+      }
+
+      .gallery figcaption {
+        line-height: 1;
+        margin: 0;
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        background: honeydew;
+        padding: 2px 4px;
+      }
+
+      figure:hover figcaption,
+      button:focus figcaption {
+        z-index: 3;
+      }
+
+      main:has(#oldest:checked) .gallery {
+        flex-direction: row-reverse;
+        flex-wrap: wrap-reverse;
+        justify-content: start;
+      }
+
+      :popover-open {
+        border: none;
+        outline: 2px solid gold;
+        top: 50vh;
+        left: 50vw;
+        transform: translate(-50%, -50%);
+      }
+
+      .popovers figure:popover-open {
+        display: grid;
+        grid-template-columns: 1fr;
+        background: honeydew;
+        padding: 0 0 10px;
+        width: fit-content;
+        max-width: 92vw;
+      }
+
+      .popovers figure:popover-open figcaption {
+        margin: 8px 12px 4px;
+        text-align: center;
+        line-height: 1.3;
+      }
+
+      .popovers figure:popover-open figcaption p {
+        margin: 0;
+      }
+
+      .popovers figure:popover-open img {
+        max-width: min(400px, 70vmin);
+        width: 70vmin;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        image-rendering: pixelated;
+      }
+
+      .popovers figure button {
+        cursor: zoom-out;
+        margin: 10px 10px 0;
+        border: 2px solid teal;
+        background: #c8daa6;
+        padding: 0;
+        line-height: 0;
+      }
+
+      @media (max-aspect-ratio: 1 / 1) {
+        .popovers figure:popover-open {
+          grid-template-columns: 1fr;
+        }
+
+        .popovers figure:popover-open figcaption {
+          margin: 8px 12px 4px;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 930px) {
+        main {
+          grid-template-columns: 1fr;
+        }
+
+        nav p {
+          margin-top: 0;
+        }
+
+        header {
+          margin: 2rem 0 1rem 0;
+        }
+
+        .gallery,
+        main:has(#oldest:checked) .gallery {
+          justify-content: center;
+          margin: 1rem auto;
+          width: 100%;
+        }
+
+        fieldset {
+          width: 200px;
+          margin: 1rem auto;
+          font-size: 0.9rem;
+        }
+
+        .gallery figcaption {
+          font-size: 90%;
+        }
+      }
+
+      @media (min-width: 931px) {
+        .menu {
+          height: fit-content;
+          position: sticky;
+          top: 0;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: #e8eee4;
+          background-color: #1a2420;
+          background-image:
+            radial-gradient(ellipse 80% 50% at 50% 0%, rgba(70, 100, 60, 0.35), transparent 60%),
+            linear-gradient(180deg, #243028 0%, #1a2420 55%, #141c18 100%);
+          background-attachment: fixed;
+        }
+
+        fieldset {
+          border-color: #c8daa6;
+        }
+
+        .gallery button,
+        .gallery figcaption,
+        .popovers figure:popover-open,
+        .popovers figure:popover-open img {
+          background: #234309;
+          border-color: darkslategrey;
+        }
+
+        :popover-open {
+          outline: 2px solid #c8daa6;
+        }
+
+        h1 {
+          text-decoration: #c8daa6 solid underline;
+        }
+
+        a {
+          color: #c8daa6;
+        }
+
+        a:hover,
+        a:focus {
+          color: black;
+          background: #c8daa6;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>off hours</h1>
+      <p>i did not find these, they were already there</p>
+    </header>
+
+    <main>
+      <div class="menu">
+        <nav>
+          <p>← <a href="album.html">more photos</a></p>
+        </nav>
+
+        <fieldset>
+          <legend>chronology</legend>
+
+          <input type="radio" id="newest" name="time" checked>
+          <label for="newest">newest first</label><br>
+
+          <input type="radio" id="oldest" name="time">
+          <label for="oldest">oldest first</label>
+        </fieldset>
+      </div>
+
+      <div class="gallery">
+        <button popovertarget="off-hours-cat" type="button">
+          <figure>
+            <img src="images/off-hours/off%20hours.png" loading="lazy" alt="black and white cat with green eyes on the kitchen floor">
+            <figcaption>home, 2026</figcaption>
+          </figure>
+        </button>
+      </div>
+    </main>
+
+    <div class="popovers">
+      <figure id="off-hours-cat" popover>
+        <button popovertarget="off-hours-cat" popovertargetaction="hide" type="button">
+          <img src="images/off-hours/off%20hours-full.png" alt="black and white cat with green eyes on the kitchen floor">
+        </button>
+        <figcaption>
+          <p>fat cat</p>
+          <p>June 9 2026 at 2:16pm</p>
+          <p>new haven, ct</p>
+        </figcaption>
+      </figure>
+    </div>
+  </body>
+</html>

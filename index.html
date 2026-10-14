@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Kumara Swamy Padari">
+    <title>Kumara Swamy Padari</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png?v=moon25">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico?v=moon25" type="image/x-icon">
+    <link rel="stylesheet" href="stylesheet.css">
+  </head>
+  <body>
+    <input type="checkbox" id="theme-switch" class="theme-switch">
+    <label for="theme-switch" class="theme-toggle" title="Toggle color theme">
+      <span class="theme-label-dark">dark</span>
+      <span class="theme-label-light">light</span>
+    </label>
+
+    <main class="page">
+      <header class="hero">
+        <div class="hero-text">
+          <h1 class="name">Kumara Swamy Padari</h1>
+          <p class="tagline"><i>I write software that keeps small promises</i></p>
+          <p class="links">
+            <a href="mailto:padari.k@northeastern.edu">Email</a> &nbsp;/&nbsp;
+            <a href="data/Kumar CV.pdf">CV</a> &nbsp;/&nbsp;
+            <a href="https://linkedin.com/in/kumarpadari">Linkedin</a> &nbsp;/&nbsp;
+            <a href="https://orcid.org/0009-0000-7410-4142">ORCID</a> &nbsp;/&nbsp;
+            <a href="https://x.com/kumar3202">X</a> &nbsp;/&nbsp;
+            <a href="https://github.com/kumar3202/">Github</a> &nbsp;/&nbsp;
+            <a href="album.html"><img class="contact-camera" src="images/album.gif" alt="Album"></a> &nbsp;/&nbsp;
+            <a href="diary.html"><img class="contact-camera contact-diary" src="images/diary.gif?v=5" alt="Diary"></a>
+          </p>
+          <hr>
+        </div>
+        <div class="photo-cell">
+          <a href="images/pfp.jpg">
+            <img class="pfp" src="images/pfp.jpg" alt="profile photo">
+          </a>
+        </div>
+      </header>
+
+      <section id="history">
+        <div class="entry">
+          <div class="timespan">2026</div>
+          <div class="ico"><div class="entry-dot"></div></div>
+          <div class="desc">software developer Intern co-op at <a href="https://galaxyitech.com/">Galaxy IT</a>.</div>
+        </div>
+        <div class="entry">
+          <div class="timespan">2026</div>
+          <div class="ico"><div class="entry-dot"></div></div>
+          <div class="desc">I co-authored <a href="https://doi.org/10.1016/j.ailsci.2026.100183">Artificial intelligence in drug discovery: Integrating data, models, and mechanisms for next-generation therapeutics</a>, in Artificial Intelligence in the Life Sciences.</div>
+        </div>
+        <div class="entry">
+          <div class="timespan">2026</div>
+          <div class="ico"><div class="entry-dot"></div></div>
+          <div class="desc">I was a software engineer on a client project for UniteGPS, where I built the transactional email system that invites parents for 50 to 70 school districts.</div>
+        </div>
+        <div class="entry">
+          <div class="timespan">2026</div>
+          <div class="ico"><div class="entry-dot"></div></div>
+          <div class="desc">I was a data analyst on a client project for Aperture Space, where I checked satellite imagery against soil moisture measured on the ground.</div>
+        </div>
+        <div class="entry">
+          <div class="timespan">2025 - 2026</div>
+          <div class="ico"><div class="entry-dot"></div></div>
+          <div class="desc">I was a teaching assistant for CS 5800, Algorithms, at Northeastern. I held office hours and graded proofs and algorithm design for 60+ graduate students across 3 sections.</div>
+        </div>
+        <div class="entry">
+          <div class="timespan">2025 - 2026</div>
+          <div class="ico"><div class="entry-dot"></div></div>
+          <div class="desc">M.S. in Computer Science at <a href="https://www.khoury.northeastern.edu/">Northeastern University</a>.</div>
+        </div>
+        <div class="entry">
+          <div class="timespan">2023</div>
+          <div class="ico"><div class="entry-dot"></div></div>
+          <div class="desc">I co-authored <a href="https://doi.org/10.1007/978-3-031-78928-1_38">5G and IoT Integration: Assessing the Technological and Security Impacts</a>, on security in 5G-enabled IoT networks. Presented at HIS 2023.</div>
+        </div>
+        <div class="entry">
+          <div class="timespan">2021 - 2024</div>
+          <div class="ico"><div class="entry-dot"></div></div>
+          <div class="desc">B.Tech in Computer Science at <a href="https://vidyanikethan.edu/">Sree Vidyanikethan Engineering College</a>, Tirupati. GPA 8.6/10.</div>
+        </div>
+      </section>
+
+      <section id="pet-projects">
+        <h2 class="ctitle">pet projects</h2>
+        <div class="project">
+          <div class="pico">
+            <a href="https://ai-ats-scanner.vercel.app/"><img src="images/projects/ats.png?v=7" alt=""></a>
+          </div>
+          <div class="pdesc">
+            <a href="https://github.com/kumar3202/AI-ATS-Scanner">AI-ATS-Scanner</a> scores a resume against a job description. It parses the PDF with PyMuPDF, asks Gemini or OpenAI for an ATS score out of 100, and keeps the history in PostgreSQL so you can see how a resume changes over time. Live at <a href="https://ai-ats-scanner.vercel.app/">ai-ats-scanner.vercel.app</a>.
+          </div>
+        </div>
+        <div class="project">
+          <div class="pico">
+            <a href="https://no-code-ai-workflow-chi.vercel.app/"><img src="images/projects/workflow.png?v=7" alt=""></a>
+          </div>
+          <div class="pdesc">
+            <a href="https://github.com/kumar3202/NO_CODE_AI_WORKFLOW">NO_CODE_AI_WORKFLOW</a> is a visual builder for LLM pipelines. You connect nodes in React Flow, FastAPI runs the graph, and ChromaDB does the retrieval, with OpenAI or Gemini and your own API keys. Live at <a href="https://no-code-ai-workflow-chi.vercel.app/">no-code-ai-workflow-chi.vercel.app</a>.
+          </div>
+        </div>
+      </section>
+
+      <section id="research">
+        <h2>Research</h2>
+        <article class="paper">
+          <a class="paper-media" href="https://doi.org/10.1016/j.ailsci.2026.100183">
+            <img class="paper-thumb" src="images/papers/drug.png?v=3" alt="AI drug-discovery pipeline">
+          </a>
+          <div class="paper-body">
+            <a href="https://doi.org/10.1016/j.ailsci.2026.100183">
+              <span class="papertitle">Artificial intelligence in drug discovery: Integrating data, models, and mechanisms for next-generation therapeutics</span>
+            </a>
+            <p class="paper-meta">
+              Rajashekar Korutla, Tanisha Garg, Shridhar Sunilkumar Pol, Venkatesh Shivandi, Samuel Gnanam,
+              <strong>Kumara Swamy Padari</strong>, Saeed Amal
+              <br>
+              <em>Artificial Intelligence in the Life Sciences</em>, 2026
+            </p>
+            <p>We look at how data, models, and mechanisms can be put together so AI can help find new drugs.</p>
+          </div>
+        </article>
+        <article class="paper">
+          <a class="paper-media" href="https://doi.org/10.1007/978-3-031-78928-1_38">
+            <img class="paper-thumb" src="images/papers/5g.png?v=3" alt="5G enabled Internet of Things">
+          </a>
+          <div class="paper-body">
+            <a href="https://doi.org/10.1007/978-3-031-78928-1_38">
+              <span class="papertitle">5G and IoT Integration: Assessing the Technological and Security Impacts</span>
+            </a>
+            <p class="paper-meta">
+              Namburi Manoj Kumar, Appana Kishan Prasad, <strong>Kumara Swamy Padari</strong>,
+              P. Devi Sree, P. Aswini, K. Reddy Madhavi
+              <br>
+              <em>HIS</em>, 2023
+            </p>
+            <p>We look at how 5G changes IoT, and at the security risks that come with that faster, denser connectivity.</p>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-credit">
+        <a href="https://github.com/jonbarron/jonbarron_website">yep another jon barron's site.</a>
+      </footer>
+    </main>
+  </body>
+</html>
